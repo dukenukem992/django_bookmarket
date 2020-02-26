@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ author.full_name }}
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+    <form action="{{ author.get_delete_url }}" method="post">
+    {% csrf_token %}
+
+    DO YOU WANT TO DELETE {{author.full_name}}?
+
+    <a href="{% url 'bookmarket_url' %}" class="btn btn-primary">BACK</a>
+    <button type="submit" name="button" class="btn btn-danger" > DELETE </button>
+    </form>
+{% else %}
+You need to register|login <a href="{% url 'bookmarket_url' %}"> back to market</a>
+{% endif %}
+{% endblock %}}

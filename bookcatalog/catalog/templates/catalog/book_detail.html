@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+{{book.title}}
+{% endblock %}
+{% block content %}
+<div class="card" style="width: 30rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ book.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">book</h6>
+    <p class="card-text">Author: {{ book.author.full_name }}</p>
+    <p class="card-text">Price {{ book.price }} $</p>
+    <br>
+    <a href="{% url 'bookmarket_url' %}" class="btn btn-primary">to the back</a>
+    <a href="{{ book.get_update_url }}" class="btn btn-primary">Update info</a>
+    <a href="{{ book.get_delete_url }}" class="btn btn-danger">delete book</a>
+
+  </div>
+</div>
+{% endblock %}}

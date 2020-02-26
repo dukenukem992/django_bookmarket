@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+Authors and books
+{% endblock %}
+
+{% block content %}
+
+<h1> Authors  &   Books </h1>
+
+{% for book in books %}
+   {% include 'catalog/cards.html' %}
+{% endfor %}
+<br><br>
+<hr>
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Средняя цена: {{ avg_price }}</li>
+    <li class="list-group-item">Средний возраст автора: {{avg_age}}</li>
+    <li class="list-group-item">Максмальная цена: {{ max_price}}</li>
+  </ul>
+</div>
+
+{% endblock %}
